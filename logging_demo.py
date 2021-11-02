@@ -20,7 +20,7 @@ def logging_test(logger):
     level = logging.WARN + 5  # custom log level
     logger.log(level, "User batman does not have a valid osu! account!")
 
-    logger.error("Fetching beatmaps from osu! API Failed: Status Code 403")
+    logger.error("Cannot fetch beatmap from osu! API! 500 Internal Server Error")
     # critical or fatal
     logger.critical("Unable to connect to the database.")
 
@@ -51,6 +51,7 @@ def my_config():
     """Write your own logging configuration."""
     # TODO write your own logging configuration
     #      specify a log file, threshold level, format, and append mode
+
     pass
 
 
@@ -63,7 +64,7 @@ if __name__ == "__main__":
 
     # 2. Call simple_config to set the format of log messages.
     #    Comment out the above call (#1) to basicConfig for this.
-    # simple_config()
+    simple_config()
 
     # 3. my_config() write your own logging configuration as
     #    described in the assignment. 
