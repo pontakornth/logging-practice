@@ -9,22 +9,20 @@ For details, see: https://docs.python.org/3/library/logging.html
 """
 import logging
 
+
 def logging_test(logger):
     """Log messages using each of the standard logging levels 
        plus 1 custom log level.
-    """ 
-    # TODO write a log message that uses each of these log levels.
-    #  Your log message should be an example of the sort of information 
-    #  you would log at that level:
-    #
-    # debug
-    # info
-    # warning
-    # level = logging.WARN + 5 (custom log level between WARN and ERROR)
-    # error
-    # critical or fatal
+    """
+    logger.debug("Setting up database.")
+    logger.info("User batman voting in What is the best hero? question.")
+    logger.warning("Invalid login for user batman from 167.109.23.123")
     level = logging.WARN + 5  # custom log level
-    print("You forgot to write logging_test")
+    logger.log(level, "User batman does not have a valid osu! account!")
+
+    logger.error("Fetching beatmaps from osu! API Failed: Status Code 403")
+    # critical or fatal
+    logger.critical("Unable to connect to the database.")
 
 
 def simple_config():
@@ -77,7 +75,5 @@ if __name__ == "__main__":
     print("Logging to ", str(logger))
     logging_test(logger)
 
-
     # TODO create a named logger, set a a custom log threshold,
     #       and call logging_test again with your named logger.
-
